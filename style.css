@@ -1,0 +1,744 @@
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+========================================= */
+
+:root {
+    --pink: #ff2f8b;
+    --pink-dark: #e91e78;
+    --pink-light: #fff0f7;
+    --pink-soft: #ffe3f0;
+
+    --white: #ffffff;
+    --background: #fffafd;
+
+    --text: #30252c;
+    --text-light: #81747c;
+
+    --border: #f6dce9;
+
+    --shadow: 0 15px 45px rgba(221, 50, 126, 0.10);
+    --shadow-hover: 0 20px 55px rgba(221, 50, 126, 0.18);
+
+    --radius: 24px;
+    --transition: 0.3s ease;
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "DM Sans", sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 10% 10%, rgba(255, 47, 139, 0.07), transparent 25%),
+        radial-gradient(circle at 90% 30%, rgba(255, 180, 213, 0.15), transparent 25%),
+        var(--background);
+
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================
+   ELEMENTOS DECORATIVOS
+========================================= */
+
+.decor {
+    position: fixed;
+    z-index: -1;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(2px);
+}
+
+.decor-1 {
+    width: 180px;
+    height: 180px;
+    background: rgba(255, 47, 139, 0.07);
+    top: 5%;
+    left: -90px;
+}
+
+.decor-2 {
+    width: 250px;
+    height: 250px;
+    background: rgba(255, 174, 210, 0.12);
+    right: -120px;
+    top: 35%;
+}
+
+.decor-3 {
+    width: 140px;
+    height: 140px;
+    border: 30px solid rgba(255, 47, 139, 0.04);
+    bottom: 5%;
+    left: 5%;
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.container {
+    width: min(100% - 32px, 720px);
+    margin: 0 auto;
+    padding: 60px 0 30px;
+}
+
+
+/* =========================================
+   PERFIL
+========================================= */
+
+.profile {
+    text-align: center;
+    animation: fadeUp 0.8s ease both;
+}
+
+.photo-wrapper {
+    position: relative;
+    width: 170px;
+    height: 170px;
+    margin: 0 auto 24px;
+}
+
+.photo-ring {
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        #ff2f8b,
+        #ff8fc2,
+        #ffc2dc,
+        #ff2f8b
+    );
+    animation: rotate 8s linear infinite;
+}
+
+.profile-photo {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid white;
+
+    box-shadow:
+        0 12px 35px rgba(218, 36, 117, 0.20);
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+.photo-wrapper:hover .profile-photo {
+    transform: scale(1.06) rotate(2deg);
+    filter: saturate(1.08);
+    box-shadow:
+        0 20px 50px rgba(218, 36, 117, 0.30);
+}
+
+.hello {
+    color: var(--pink);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+h1,
+h2 {
+    font-family: "Playfair Display", serif;
+}
+
+h1 {
+    font-size: clamp(2.3rem, 7vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: 14px;
+    color: #2e2229;
+}
+
+.bio {
+    max-width: 520px;
+    margin: 0 auto;
+    color: var(--text-light);
+    line-height: 1.7;
+    font-size: 0.98rem;
+}
+
+
+/* =========================================
+   VERSÍCULO
+========================================= */
+
+.verse {
+    position: relative;
+    max-width: 540px;
+    margin: 30px auto 0;
+    padding: 26px 30px;
+
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+}
+
+.quote-icon {
+    display: block;
+    color: var(--pink);
+    font-family: Georgia, serif;
+    font-size: 3rem;
+    line-height: 0.6;
+    margin-bottom: 10px;
+}
+
+.verse p {
+    font-family: "Playfair Display", serif;
+    font-size: 1.12rem;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.reference {
+    display: block;
+    margin-top: 10px;
+    color: var(--pink);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   DATA E HORA
+========================================= */
+
+.date-card {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+
+    margin-top: 22px;
+    padding: 18px;
+
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    animation: fadeUp 0.8s 0.15s ease both;
+}
+
+.date-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.icon-circle {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    color: var(--pink);
+    background: var(--pink-light);
+    border-radius: 50%;
+}
+
+.date-item div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.label {
+    color: var(--text-light);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.date-item strong {
+    font-size: 0.92rem;
+}
+
+.divider {
+    width: 1px;
+    height: 40px;
+    background: var(--border);
+}
+
+
+/* =========================================
+   INSTAGRAM
+========================================= */
+
+.instagram-button {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    margin-top: 16px;
+    padding: 15px 18px;
+
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #ff2f8b,
+        #f52f65,
+        #c92fa7
+    );
+
+    border-radius: 18px;
+
+    box-shadow: 0 12px 30px rgba(238, 44, 125, 0.20);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.instagram-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px rgba(238, 44, 125, 0.30);
+}
+
+.instagram-icon {
+    width: 44px;
+    height: 44px;
+
+    display: grid;
+    place-items: center;
+
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 14px;
+
+    font-size: 1.35rem;
+}
+
+.instagram-button > span:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+}
+
+.instagram-button small {
+    opacity: 0.8;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.external-icon {
+    margin-left: auto;
+    opacity: 0.75;
+    font-size: 0.85rem;
+}
+
+
+/* =========================================
+   ANIVERSÁRIO
+========================================= */
+
+.birthday-card {
+    position: relative;
+
+    margin-top: 45px;
+    padding: 30px 22px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff,
+            #fff4f9
+        );
+
+    border: 1px solid var(--border);
+    border-radius: 28px;
+
+    box-shadow: var(--shadow);
+
+    overflow: hidden;
+
+    animation: fadeUp 0.8s 0.25s ease both;
+}
+
+.birthday-card::before {
+    content: "";
+    position: absolute;
+
+    width: 170px;
+    height: 170px;
+
+    top: -100px;
+    right: -60px;
+
+    border-radius: 50%;
+
+    background: var(--pink-soft);
+}
+
+.birthday-decoration {
+    position: relative;
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.section-label {
+    display: block;
+
+    color: var(--pink);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+}
+
+.birthday-card h2 {
+    position: relative;
+
+    margin-top: 7px;
+    font-size: 1.55rem;
+}
+
+.birthday-date {
+    margin-top: 7px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.countdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+
+    margin-top: 22px;
+}
+
+.countdown-box {
+    padding: 13px 5px;
+
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.countdown-box strong {
+    display: block;
+
+    color: var(--pink);
+    font-size: 1.5rem;
+    line-height: 1.2;
+}
+
+.countdown-box span {
+    color: var(--text-light);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.birthday-message {
+    margin-top: 18px;
+
+    color: var(--text-light);
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   MINHA PASTA
+========================================= */
+
+.folder-section {
+    margin-top: 45px;
+    animation: fadeUp 0.8s 0.35s ease both;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.folder-title-icon {
+    width: 52px;
+    height: 52px;
+
+    display: grid;
+    place-items: center;
+
+    color: var(--pink);
+    background: var(--pink-light);
+    border-radius: 16px;
+
+    font-size: 1.25rem;
+}
+
+.section-heading h2 {
+    margin-top: 1px;
+    font-size: 1.8rem;
+}
+
+.section-description {
+    margin: 13px 0 18px;
+    color: var(--text-light);
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+.folder-grid {
+    display: grid;
+    gap: 12px;
+}
+
+.folder-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 16px;
+
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    box-shadow: 0 8px 25px rgba(80, 30, 50, 0.05);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
+}
+
+.folder-card:hover {
+    transform: translateY(-3px);
+    border-color: #f3b4d0;
+    box-shadow: var(--shadow-hover);
+}
+
+.folder-card-icon {
+    flex-shrink: 0;
+
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 15px;
+
+    font-size: 1.2rem;
+}
+
+.folder-card-icon.pink {
+    color: var(--pink);
+    background: var(--pink-light);
+}
+
+.folder-card-icon.purple {
+    color: #9c4dcc;
+    background: #f6edff;
+}
+
+.folder-card-content {
+    min-width: 0;
+    flex: 1;
+}
+
+.folder-card-content h3 {
+    font-size: 0.95rem;
+    margin-bottom: 3px;
+}
+
+.folder-card-content p {
+    color: var(--text-light);
+    font-size: 0.76rem;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.arrow {
+    color: #c7b6be;
+    font-size: 0.8rem;
+    transition: transform var(--transition), color var(--transition);
+}
+
+.folder-card:hover .arrow {
+    color: var(--pink);
+    transform: translateX(3px);
+}
+
+
+/* =========================================
+   RODAPÉ
+========================================= */
+
+footer {
+    margin-top: 50px;
+    padding-top: 25px;
+
+    text-align: center;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--text-light);
+    font-size: 0.75rem;
+}
+
+.footer-heart {
+    color: var(--pink);
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+footer p {
+    margin-bottom: 4px;
+}
+
+
+/* =========================================
+   ANIMAÇÕES
+========================================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 520px) {
+
+    .container {
+        width: min(100% - 24px, 720px);
+        padding-top: 38px;
+    }
+
+    .photo-wrapper {
+        width: 145px;
+        height: 145px;
+    }
+
+    h1 {
+        font-size: 2.35rem;
+    }
+
+    .bio {
+        padding: 0 8px;
+        font-size: 0.9rem;
+    }
+
+    .verse {
+        padding: 22px 18px;
+    }
+
+    .verse p {
+        font-size: 1rem;
+    }
+
+    .date-card {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .date-item {
+        justify-content: flex-start;
+        padding-left: 8px;
+    }
+
+    .divider {
+        width: 100%;
+        height: 1px;
+    }
+
+    .countdown {
+        gap: 5px;
+    }
+
+    .countdown-box {
+        padding: 11px 3px;
+    }
+
+    .countdown-box strong {
+        font-size: 1.25rem;
+    }
+
+    .countdown-box span {
+        font-size: 0.55rem;
+    }
+
+    .birthday-card {
+        padding: 25px 14px;
+    }
+
+    .folder-section {
+        margin-top: 35px;
+    }
+}
+
+
+/* Acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
